@@ -3,19 +3,30 @@ import pandas as pd
 import numpy as np
 import datetime
 
-
+#This module executes a set of preprocessing steps including dropping columns,
+#converting data to datetime objects, booleans, categories, and numerical
+#data. The functions use a dataframe with two features: the names of the
+#columns in the dataframe to be processed and actions to take on each
+#of those columns.
 
 def col_names(df_col_names, value, filter_col='action'):
     '''
+    Generate a list of column names that have been assigned to an
+    action.
+
     Parameters
     ----------
-    df_col_names: dataframe with column names and actions to taken on each column
-    filter_col: string with column name to filter by
-    value: string with value to filter on eg. 'drop', 'categorical'
+    df_col_names: dataframe
+        The dataframe has column names and actions to taken on each column
+    filter_col: string, default 'action'
+        with column name to filter by
+    value: string
+        String with value to filter on eg. 'drop', 'categorical', 'numerical'
 
     Returns
     -------
-    col_names: list of strings with names of columns
+    col_names: list of strings
+        List of strings containing names of columns.
 
     '''
     #generate list of columns to drop
@@ -30,14 +41,18 @@ def col_names(df_col_names, value, filter_col='action'):
 
 def drop_cols(df, df_col_names):
     '''
+    Drop columns from the dataframe by referencing a second dataframe with
+    instructions on which columns to drop.
+
     Parameters
     ----------
-    df_col_names: dataframe with column names and actions to take on each column
-    columns: list of column names to drop from dataframe
+    df: dataframe
+    df_col_names: dataframe
+        Dataframe with column names and actions to take on each column.
 
     Returns
     -------
-    Dataframe with columns dropped as specified in parameters
+    Dataframe with columns dropped as specified.
 
     '''
     cols_to_drop = col_names(df_col_names, value='drop')
@@ -48,14 +63,17 @@ def drop_cols(df, df_col_names):
 
 def convert_datetime(df, df_col_names):
     '''
+    Convert data to datetime objects.
+
     Parameters
     ----------
     df: dataframe
-    df_col_names: dataframe with column names and actions to take on each column
+    df_col_names: dataframe
+        Dataframe with column names and actions to take on each column.
 
     Returns
     -------
-    Dataframe with datetime features changed to datetime objects
+    Dataframe with specified datetime features changed to datetime objects.
 
     '''
 
@@ -67,14 +85,17 @@ def convert_datetime(df, df_col_names):
 
 def convert_categories(df, df_col_names):
     '''
+    Convert categorical data into data type 'category'.
+
     Parameters
     ----------
     df: dataframe
-    df_col_names: dataframe with column names and actions to take on each column
+    df_col_names: dataframe
+        Dataframe with column names and actions to take on each column.
 
     Returns
     -------
-    Dataframe with features changed to datetime objects
+    Dataframe with specified features changed to categories.
 
     '''
     cols_categorical = col_names(df_col_names, value='categorical')
@@ -85,14 +106,17 @@ def convert_categories(df, df_col_names):
 
 def convert_numerical(df, df_col_names):
     '''
+    Convert numerical data into integers and floats.
+
     Parameters
     ----------
     df: dataframe
-    cols_numerical: list of column names to convert to numerical data
+    df_col_names: dataframe
+        Dataframe with column names and actions to take on each column.
 
     Returns
     -------
-    Dataframe with features changed to datetime objects
+    Dataframe with specified features changed to integers and floats.
 
     '''
     cols_numerical = col_names(df_col_names, value='numerical')
@@ -106,11 +130,12 @@ def convert_boolean(df, df_col_names):
     Parameters
     ----------
     df: dataframe
-    cols_boolean: list of column names to convert to booleans
+    df_col_names: dataframe
+        Dataframe with column names and actions to take on each column.
 
     Returns
     -------
-    Dataframe with converted features
+    Dataframe with specified features converted to booleans.
 
     '''
 
@@ -126,7 +151,7 @@ def convert_boolean(df, df_col_names):
 
 def process_data(df, df_col_names):
     df = df.copy()
-    pipeline = [drop_cols, convert_datetime, convert_categories, \
+    pipeline = [drop_cols, convert_datetime, convert_categories,
                 convert_numerical, convert_boolean]
 
     for step in pipeline:
