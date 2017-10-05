@@ -5,5 +5,5 @@ Diabesties is a mobile health app designed to help college students with Type 1 
 
 This work was completed as a capstone project for the Galvanize Data Science Immersive program in Phoenix, AZ. 
 
-The full presentation of the analysis an results can be found here.
+The full presentation of the analysis will be made available by October 16th, 2017. 
 
