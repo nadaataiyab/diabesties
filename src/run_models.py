@@ -1,28 +1,39 @@
+'''
+This  module is used to run the classifier models on the data, print model scores,
+and produce an ROC curve comparing the models. 
+'''
+
 from __future__ import print_function, division
+import datetime
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-import datetime
-from sqlalchemy import create_engine
-import MySQLdb
-import src.data_processing as dp
-import src.join_tables as jt
-import src.add_dates as ad
-import src.feature_engineering_entries as fee
-import src.feature_engineering_usage as feu
-import src.feature_engineering_demo as fed
-import src.data_cleaning as dc
-
-from statsmodels.discrete.discrete_model import Logit
-from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.model_selection import train_test_split
 from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_score, recall_score
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier, AdaBoostClassifier
-from sklearn.linear_model import RidgeClassifier
-from sklearn.preprocessing import StandardScaler, MinMaxScaler
+
 
 def run_logistic(X_train, X_test, y_train, y_test):
+    '''
+    Run logistic regression
+    Parameters
+    ----------
+    X_train: numpy array
+        Features from training data.
+    X_test: numpy array
+        Features from test data.
+    y_train: numpy array
+        Labels for training data.
+    y_test: numpy array
+        Labels for test data. 
+    
+    Returns
+    -------
+
+    '''
+
     lr = LogisticRegression()
     lr.fit(X_train, y_train)
     y_score = lr.predict_proba(X_test)[:, 1]
@@ -98,4 +109,3 @@ def run_classifiers(X_train, X_test, y_train, y_test, classifiers):
         plt.plot([0,1], [0,1],'--', color='black')
         sns.plt.annotate("Area Under the Curve (AUC)", (0.6, 0.3), fontsize='xx-large', color='grey')
 
-#create a list of dictionaries of the model results

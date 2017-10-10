@@ -1,13 +1,15 @@
+'''
+This module executes a set of preprocessing steps including dropping columns,
+converting data to datetime objects, booleans, categories, and numerical
+data. The functions use a dataframe with two features: the names of the
+columns in the dataframe to be processed and actions to take on each
+of those columns.
+'''
+
 from __future__ import print_function, division
+import datetime
 import pandas as pd
 import numpy as np
-import datetime
-
-#This module executes a set of preprocessing steps including dropping columns,
-#converting data to datetime objects, booleans, categories, and numerical
-#data. The functions use a dataframe with two features: the names of the
-#columns in the dataframe to be processed and actions to take on each
-#of those columns.
 
 def col_names(df_col_names, value, filter_col='action'):
     '''

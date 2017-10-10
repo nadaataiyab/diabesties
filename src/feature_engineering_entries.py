@@ -27,6 +27,14 @@ def entries_post_two_weeks(df_entries):
     return df_entries
 
 def moods_w1(df_entries):
+    '''
+    Parameters
+    ----------
+
+    Returns
+    -------
+    
+    '''
     df_entries['moods_w1'] = (df_entries.entry_time.dt.date < df_entries['one_week']) \
                                     & (df_entries.mood.notnull())
     return df_entries
