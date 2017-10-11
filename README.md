@@ -21,9 +21,7 @@ I ran 4 classifier models:
 
 Gradient Boosted Trees slightly outperformed the other models. 
 
-![Model Scores](https://github.com/nadaataiyab/diabesties/blob/master/images/Galvanize_Capstone_Nadaa.025.jpeg =100x20)
-
-<img src="https://github.com/nadaataiyab/diabesties/blob/master/images/Galvanize_Capstone_Nadaa.025.jpeg" width="200">
+<img src="https://github.com/nadaataiyab/diabesties/blob/master/images/Galvanize_Capstone_Nadaa.025.jpeg" width="600">
 
 Gradient Boosted Trees Model Scores:
 
