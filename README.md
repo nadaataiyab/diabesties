@@ -3,8 +3,8 @@
 #### The Quick Summary
 Diabesties is a mobile health app designed to help college students with Type 1 diabetes better manage their condition by tracking their blood glucose, insulin, and carbs and sharing their data with a friend or 'diabestie'. This project uses machine learning algorithms to predict user churn, which is defined as users that log their data less than ten times after the first week of use. 
 
-[View the slide presentation of the analysis.](https://www.slideshare.net/secret/7XXDeLkAWWXyWC)
-[View the live presentation at Galvanize in Phoenix, AZ, on October 5th, 2017.](https://youtu.be/6jJtakvCEqA)
+[View the slide presentation of the analysis.](https://www.slideshare.net/secret/7XXDeLkAWWXyWC)  
+[View the live presentation at Galvanize in Phoenix, AZ, on October 5th, 2017.](https://youtu.be/6jJtakvCEqA)  
 View the narrated slide presentation - COMING SOON!
 
 #### The Data
