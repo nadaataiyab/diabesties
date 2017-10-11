@@ -3,11 +3,13 @@
 #### The Quick Summary
 Diabesties is a mobile health app designed to help college students with Type 1 diabetes better manage their condition by tracking their blood glucose, insulin, and carbs and sharing their data with a friend or 'diabestie'. This project uses machine learning algorithms to predict user churn, which is defined as users that log their data less than ten times after the first week of use. 
 
-[View the slide presentation of the analysis.](https://www.slideshare.net/secret/7XXDeLkAWWXyWC)  
-[View the live presentation at Galvanize in Phoenix, AZ, on October 5th, 2017.](https://youtu.be/6jJtakvCEqA)  
-View the narrated slide presentation - COMING SOON!
+* [Slides.](https://www.slideshare.net/secret/7XXDeLkAWWXyWC)  
+* [Live Presentation.](https://youtu.be/6jJtakvCEqA)  
+* Narrated Slides - COMING SOON!
 
 #### The Data
+The data included ~3,000 users who had made a total of ~50,000 and ~400,000 clicks in the app. 
+
 The exploratory data analysis yielded some interesting and sometimes suprising results:
 * 70% of users were not college age. The median age was 37 
 * 42% of users had Type II and not Type I diabetes
@@ -18,21 +20,31 @@ The exploratory data analysis yielded some interesting and sometimes suprising r
 I used a combination of demographic data (eg. age, ethnicity, diabetes type, etc.) and behavioral data (number of log entries, page views in app, etc.)
 
 I ran 4 classifier models and plotted their [ROC curves](https://github.com/nadaataiyab/diabesties/blob/master/images/Galvanize_Capstone_Nadaa.024.jpeg):
-* Logistic Regression
-* Random Forest
-* Gradient Boosted Trees
-* AdaBoost
+          MODEL            AUC (Area Under the Curve)
+  ----------------------   --------------------------
+* Logistic Regression              0.89
+* Random Forest                    0.88
+* Gradient Boosted Trees           0.91
+* AdaBoost                         0.89
 
-Gradient Boosted Trees slightly outperformed the other models.
-* Accuracy: 
-* 
+*Gradient Boosted Trees slightly outperformed the other models. 
 
+Gradient Boosted Trees Model Performance:
+* Accuracy:       94%
+* Predicision:    95%
+* Recall:         98%
 
+Although the model scores indicate a high score for predicting churn, it performed as well as a random guess for the non-churn class. In the test data, the non-churn class was only 10% of the total observations. 
 
-
+According to the feature importance analysis produced by the Random Forest algorithm, the following features had the highest predictive power:
+1. Number of page views in the first week
+2. Number foo
+3. Age
+4. ...
+5. ....
 
 ### Conclusion
-The model seemed to do a good job of predicting churn, but model performance was inflated by a heavy class imabalance. More work could be done in terms of feature engineering and tweaking the hyper-parameters to improve the ability to predict non-churn. 
+The model seemed to do a good job of predicting churn, but model performance was inflated by a heavy class imabalance. More work could be done in terms of feature engineering and tweaking the hyper-parameters to improve the ability to predict non-churn. Behavioral data appears to have more predictive power than demographic data. 
 
 ### Technologies Used
 * Python, Pandas, Numpy, MySQL, scikit-learn, matplotlib, seaborn, Jupyter Notebook
