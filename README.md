@@ -1,7 +1,7 @@
 # Diabesties
 ## Predicting User Churn for a Digital Health App
 ### Quick Summary
-Diabesties is a mobile health app designed to help college students with Type 1 diabetes manage their condition by tracking their blood glucose, insulin, and carbs and sharing that data with a friend or 'diabestie'.  In this project, I used machine learning algorithms to predict user churn. 'Churned' users are those that stop engaging with the app after a defined period of time. This work was completed as my capstone project for the [Galvanize Data Science bootcamp](https://www.galvanize.com/phoenix/data-science) in Phoenix, AZ. 
+Diabesties is a mobile health app designed to help college students with Type 1 diabetes manage their condition by tracking their blood glucose, insulin, and carbs and sharing that data with a friend or 'diabestie'.  In this project, I used machine learning algorithms to predict user churn. 'Churned' users are those that stop engaging with the app after a defined period of time. This work was completed as my capstone project for the [Galvanize Data Science Immersive program](https://www.galvanize.com/phoenix/data-science) in Phoenix, AZ. 
 
 * [Slides](https://www.slideshare.net/secret/7XXDeLkAWWXyWC)  
 * [Live Presentation](https://youtu.be/6jJtakvCEqA)  
@@ -42,7 +42,7 @@ According to the feature importance analysis produced by the Random Forest algor
 5. num moods entered (behavioral)
 
 ### Conclusion
-The model did a good job of predicting churn, but model performance was inflated by a heavy class imabalance. More work could be done in terms of feature engineering and tweaking the hyper-parameters to improve the ability to predict non-churn. Behavioral data appears to have more predictive power than demographic data. Many of the app's users were different from the intended target market. 
+The model did a good job of predicting churn, but model performance was inflated by a heavy class imbalance. More work could be done in terms of feature engineering and tweaking the hyper-parameters to improve the ability to predict non-churn. Behavioral data appears to have more predictive power than demographic data. Many of the app's users were different from the intended target market. 
 
 ### Technologies Used
 * Python, Pandas, Numpy, MySQL, scikit-learn, matplotlib, seaborn
