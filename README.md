@@ -15,7 +15,7 @@ The data included ~3,000 users who had made a total of ~50,000 log entries and ~
 * Having a diabestie did not appear to impact churn rates (although it is possible that it did improve user outcomes).
 
 ### Churn Definition
-I defined churn as a user who logged less than ten additional times after the first week of use, because I was interested in identifying the users that were truly engaged and committed to tracking their data. 
+I defined churn as a user who logged less than ten additional times after the first week of use, because I was interested in identifying the users that were truly engaged and committed to tracking their data in the app.  
 
 ### Modeling and Results
 I used 23 features to run my models, including demographic data (eg. age, ethnicity, diabetes type, etc.) and behavioral data (number of log entries, page views, etc.). 
