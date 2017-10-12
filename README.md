@@ -1,7 +1,7 @@
 # Diabesties
 ## Predicting User Churn for a Digital Health App
 #### The Quick Summary
-Diabesties is a mobile health app designed to help college students with Type 1 diabetes better manage their condition by tracking their blood glucose, insulin, and carbs and sharing their data with a friend or 'diabestie'. I ran machine learning algorithms on data representing user demographics and their usage patterns within the app, to predict user churn. ('Churned' users are those that stop engaging with the app after a defined period of time.) This work was completed as my capstone project for the [Galvanize Data Science bootcamp](https://www.galvanize.com/phoenix/data-science) in Phoenix, AZ. 
+Diabesties is a mobile health app designed to help college students with Type 1 diabetes better manage their condition by tracking their blood glucose, insulin, and carbs and sharing their data with a friend or 'diabestie'.  I ran machine learning algorithms on user demographics and behavioral data, to predict user churn. ('Churned' users are those that stop engaging with the app after a defined period of time.) This work was completed as my capstone project for the [Galvanize Data Science bootcamp](https://www.galvanize.com/phoenix/data-science) in Phoenix, AZ. 
 
 * [Slides](https://www.slideshare.net/secret/7XXDeLkAWWXyWC)  
 * [Live Presentation](https://youtu.be/6jJtakvCEqA)  
@@ -14,8 +14,11 @@ The data included ~3,000 users who had made a total of ~50,000 log entries and ~
 * The app was primarily used as a glucose tracker.
 * Having a diabestie did not seem to make a difference to churn (although it is possible that it did improve user outcomes).
 
+### Churn Definition
+I defined churn as a user who logged less than ten additional times after the first week of use, because I was interested in identifying the users that were truly engaged and committed to tracking their data. 
+
 #### The Modeling and Results
-I used 23 features to run my models, including demographic data (eg. age, ethnicity, diabetes type, etc.) and behavioral data (number of log entries, page views in app, etc.)
+I used 23 features to run my models, including demographic data (eg. age, ethnicity, diabetes type, etc.) and behavioral data (number of log entries, page views in app, etc.). 
 
 I ran 4 classifier models and plotted their [ROC curves](https://github.com/nadaataiyab/diabesties/blob/master/images/Galvanize_Capstone_Nadaa.024.jpeg). Their respective AUC (Area Under the Curve) measures are listed below:
 * Logistic Regression              0.89
@@ -23,27 +26,32 @@ I ran 4 classifier models and plotted their [ROC curves](https://github.com/nada
 * Gradient Boosted Trees           0.91
 * AdaBoost                         0.89
 
-Gradient Boosted Trees had a slightly higher AUC versus the other models and produced the following scores:
+Gradient Boosted Trees produced the highest AUC and the following scores:
 * Accuracy:       94%
 * Precision:      95%
 * Recall:         98%
 
-*Accuracy: total number of correctly labeled samples; Precision: 95% of the samples labeled as churn really did churn; Recall: 98% of samples that churned were labeled as churn - only 2% 'got away' and were labeled as 'not churn.'
+*Accuracy: total number of correctly labeled samples; Precision: 95% of the samples labeled as churn actually churned; Recall: 98% of samples that churned were labeled as churn - only 2% 'got away' and were labeled as 'not churn.'*
 
-The model did well at predicting churn, but it performed poorly at predicting non-churn. In the test data, the non-churn class was only 10% of the total observations. Only about 50% of the non-churn class was correctly labeled.  
+The model performed well for predicting churn, but poorly for predicting non-churn. This may be due to the significant class imbalance. In the test data, the non-churn class comprised only 10% of the total observations and was only correctly labeled as non-churn 50% of the time.  
 
-According to the feature importance analysis produced by the Random Forest algorithm, the following features had the highest predictive power:
-1. Number of page views in the first week
-2. Number foo
-3. Age
-4. ...
-5. ....
+#### Feature Importance
+According to the feature importance analysis produced by the Random Forest algorithm, the following features had the highest predictive power. All behavioral data was based on the first week of use:
+1. num page views (behavioral)
+2. num log entries (behavioral)
+3. age (demographic)
+4. num notes entered (behavioral)
+5. num moods entered (behavioral)
 
 ### Conclusion
-The model seemed to do a good job of predicting churn, but model performance was inflated by a heavy class imabalance. More work could be done in terms of feature engineering and tweaking the hyper-parameters to improve the ability to predict non-churn. Behavioral data appears to have more predictive power than demographic data. 
+The model did a good job of predicting churn, but model performance was inflated by a heavy class imabalance. More work could be done in terms of feature engineering and tweaking the hyper-parameters to improve the ability to predict non-churn. Behavioral data appears to have more predictive power than demographic data. 
 
 ### Technologies Used
-* Python, Pandas, Numpy, MySQL, scikit-learn, matplotlib, seaborn, Jupyter Notebook
+* Python, Pandas, Numpy, MySQL, scikit-learn, matplotlib, seaborn
+
+### Code and Notebook
+* (Python scripts)[https://github.com/nadaataiyab/diabesties/tree/master/src]
+* (Jupyter notebook)[https://github.com/nadaataiyab/diabesties/blob/master/diabesties_analysis.ipynb]
 
 ### About Diabesties
 Diabesties was built by (Ayogo)[http://ayogo.com/], a Canadian digital health app developer, in partnership with the (College Diabetes Network)[https://collegediabetesnetwork.org/content/diabesties-iphone-application-release]. The app was available in the iPhone app store from 2012-2015. 
