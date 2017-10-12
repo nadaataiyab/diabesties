@@ -12,7 +12,7 @@ The data included ~3,000 users who had made a total of ~50,000 log entries and ~
 * 70% of users were not college age. The median age was 37. 
 * 42% of users had Type II and not Type I diabetes. 
 * The app was primarily used as a glucose tracker.
-* Having a diabestie did not seem to make a difference to churn (although it is possible that it did improve user outcomes).
+* Having a diabestie did not appear to impact churn rates (although it is possible that it did improve user outcomes).
 
 ### Churn Definition
 I defined churn as a user who logged less than ten additional times after the first week of use, because I was interested in identifying the users that were truly engaged and committed to tracking their data. 
