@@ -1,8 +1,12 @@
+'''
+'''
+
 from __future__ import print_function, division
+import datetime
 import pandas as pd
 import numpy as np
-import datetime
-import join_tables as jt
+
+
 
 def entries_one_week (df_entries):
     '''

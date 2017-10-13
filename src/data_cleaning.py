@@ -1,6 +1,6 @@
 '''
-Module to remove test users from dataframes, convert age outliers to median value,
-and convert null values in specified features to zero. 
+Module to remove test users from dataframes, convert age outliers to median value, and
+convert null values in specified features to zero.
 '''
 
 from __future__ import print_function, division
@@ -16,7 +16,7 @@ def remove_test_users(df):
     Parameters
     ----------
     df: dataframe
-    
+
     Returns
     --------
     df: dataframe
@@ -29,7 +29,7 @@ def remove_test_users(df):
 
 def srub_age(df_demo):
     '''
-    Convert outliers for age that are likely user input errors to median age. 
+    Convert outliers for age that are likely user input errors to median age.
 
     Parameters
     ----------
@@ -38,7 +38,7 @@ def srub_age(df_demo):
     Returns
     -------
     df: dataframe
-        Dataframe with age outliers converted to median age. 
+        Dataframe with age outliers converted to median age.
     '''
     median_age = df_demo['age'].median()
     df_demo['age2'] = df_demo.age.map(lambda x: median_age if x > 100 \
