@@ -82,7 +82,6 @@ def create_dates(df_usage):
     Returns
     -------
     df_dates: dataframe
-    
     '''
     first_date = first_use(df_usage=df_usage)
     last_date = last_use(df_usage=df_usage)
@@ -106,7 +105,6 @@ def add_dates(df, df_dates):
     -------
     df: dataframe
         Demographics dataframe with dates dataframe joined to it. 
-
     '''
     df = df.join(df_dates, on='user_id')
     return df

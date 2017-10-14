@@ -29,7 +29,6 @@ def col_names(df_col_names, value, filter_col='action'):
     -------
     col_names: list of strings
         List of strings containing names of columns.
-
     '''
     #generate list of columns to drop
     col_names = list(df_col_names.iloc[:, 0]\
@@ -55,7 +54,6 @@ def drop_cols(df, df_col_names):
     Returns
     -------
     Dataframe with columns dropped as specified.
-
     '''
     cols_to_drop = col_names(df_col_names, value='drop')
     df = df.copy()
@@ -76,9 +74,7 @@ def convert_datetime(df, df_col_names):
     Returns
     -------
     Dataframe with specified datetime features changed to datetime objects.
-
     '''
-
     cols_datetime = col_names(df_col_names, value='date')
     df = df.copy()
     for col in cols_datetime:
@@ -98,7 +94,6 @@ def convert_categories(df, df_col_names):
     Returns
     -------
     Dataframe with specified features changed to categories.
-
     '''
     cols_categorical = col_names(df_col_names, value='categorical')
     df = df.copy()
@@ -119,7 +114,6 @@ def convert_numerical(df, df_col_names):
     Returns
     -------
     Dataframe with specified features changed to integers and floats.
-
     '''
     cols_numerical = col_names(df_col_names, value='numerical')
     df = df.copy()
@@ -129,6 +123,7 @@ def convert_numerical(df, df_col_names):
 
 def convert_boolean(df, df_col_names):
     '''
+    Convert specified columns to booleans. 
     Parameters
     ----------
     df: dataframe
@@ -138,9 +133,7 @@ def convert_boolean(df, df_col_names):
     Returns
     -------
     Dataframe with specified features converted to booleans.
-
     '''
-
     cols_boolean = col_names(df_col_names, value='boolean')
 
     df = df.copy()
@@ -152,6 +145,9 @@ def convert_boolean(df, df_col_names):
 
 
 def process_data(df, df_col_names):
+    '''
+    Convert data types using predefined functions. 
+    '''
     df = df.copy()
     pipeline = [drop_cols, convert_datetime, convert_categories,
                 convert_numerical, convert_boolean]

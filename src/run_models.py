@@ -1,6 +1,6 @@
 '''
-This  module is used to run the classifier models on the data, print model scores,
-and produce an ROC curve comparing the models. 
+This module is used to run the classifier models on the data, print model scores,
+and produce an ROC curve comparing the models.
 '''
 
 from __future__ import print_function, division
@@ -14,26 +14,11 @@ from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_score, r
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier, AdaBoostClassifier
 
-
 def run_logistic(X_train, X_test, y_train, y_test):
     '''
-    Run logistic regression
-    Parameters
-    ----------
-    X_train: numpy array
-        Features from training data.
-    X_test: numpy array
-        Features from test data.
-    y_train: numpy array
-        Labels for training data.
-    y_test: numpy array
-        Labels for test data. 
-    
-    Returns
-    -------
-
+    Input train and test data. Run logistic regression model, print accuracy, precision,
+    recall and AUC, pring confusion matrix scores, plot ROC curve.
     '''
-
     lr = LogisticRegression()
     lr.fit(X_train, y_train)
     y_score = lr.predict_proba(X_test)[:, 1]
@@ -60,19 +45,17 @@ def run_logistic(X_train, X_test, y_train, y_test):
     print(print_out_scores)
     print(print_out_confusion_matrix)
 
-    plt.figure(figsize=(15,10))
+    plt.figure(figsize=(15, 10))
     plt.ylabel('True Positive Rate (Sensitivity)', fontsize=20)
     plt.xlabel('False Positive Rate (1-Specificity)', fontsize=20)
     plt.plot(fpr, tpr, label="Logistic Regression: {:0.2f}".format(auc_score), linewidth=5)
     plt.legend(fontsize=24, loc=4)
     plt.title("ROC Curves of Churn Models", fontsize=30)
 
-
-
-
 def run_classifiers(X_train, X_test, y_train, y_test, classifiers):
     '''
-    ADD DOCUMENTATION
+    Input train and test data. Run Random Forest, AdaBoost, Gradient Bosoting,
+    print accuracy, precision, recall and AUC, pring confusion matrix scores, plot ROC curve.
     '''
     for c in classifiers:
         model = c
@@ -106,6 +89,7 @@ def run_classifiers(X_train, X_test, y_train, y_test, classifiers):
 
         plt.plot(fpr, tpr, label=model_name, linewidth=5)
         plt.legend(fontsize=24, loc=4)
-        plt.plot([0,1], [0,1],'--', color='black')
-        sns.plt.annotate("Area Under the Curve (AUC)", (0.6, 0.3), fontsize='xx-large', color='grey')
-
+        plt.plot([0, 1], [0, 1], '--', color='black')
+        sns.plt.annotate("Area Under the Curve (AUC)", (0.6, 0.3), fontsize='xx-large',
+                         color='grey')
+        

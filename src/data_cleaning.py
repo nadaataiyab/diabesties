@@ -22,7 +22,6 @@ def remove_test_users(df):
     df: dataframe
         Dataframe with test users scrubbed from it.
     '''
-
     df = df.copy()
     df = df[df['user_id'] > 5]
     return df

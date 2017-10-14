@@ -7,10 +7,10 @@ and for decision trees (where all dummy variables are kept).
 '''
 
 from __future__ import print_function, division
+import datetime
 import pandas as pd
 import numpy as np
-import datetime
-import join_tables as jt
+import src.join_tables as jt
 
 def create_age(df_demo):
     '''
@@ -66,8 +66,7 @@ def dummies_logistic(df_demo):
     '''
     df_demo = df_demo.copy()
     df_demo = pd.get_dummies(df_demo, columns=['college_type', 'diabetes_type',\
-                                                'ethnicity', 'gender'],
-                                                drop_first=True)
+                                                'ethnicity', 'gender'], drop_first=True)
     return df_demo
 
 def dummies_other(df_demo):
