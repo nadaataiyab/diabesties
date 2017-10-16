@@ -3,7 +3,7 @@
 ### Quick Summary
 Diabesties is a mobile health app designed to help college students with Type 1 diabetes manage their condition by tracking their blood glucose, insulin, and carbs and sharing that data with a friend or 'diabestie'.  In this project, I used machine learning algorithms to predict user churn. 'Churned' users are those that stop engaging with the app after a defined period of time. This work was completed as my capstone project for the [Galvanize Data Science Immersive program](https://www.galvanize.com/phoenix/data-science) in Phoenix, AZ. 
 
-* [Slides](https://www.slideshare.net/secret/7XXDeLkAWWXyWC)  
+* [Slides](https://www.slideshare.net/NadaaTaiyab/predicting-user-churn-for-a-digital-health-app-80873562)  
 * [Live Presentation](https://youtu.be/6jJtakvCEqA)  
 * Narrated Slides - COMING SOON!
 
