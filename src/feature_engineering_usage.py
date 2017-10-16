@@ -54,7 +54,7 @@ def a1c_w1(df_usage):
 
 def a1c_w1w2(df_usage):
     '''
-    Create new column in dataframe with a boolean returning as True if aic was updated
+    Create new column in dataframe with a boolean returning as True if a1c was updated
     within two weeks from the date of first use for that user.
     '''
     df_usage['a1c_w1w2'] = (df_usage.time.dt.date < df_usage['two_weeks']) \
